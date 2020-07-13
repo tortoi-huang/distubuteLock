@@ -7,6 +7,15 @@ import java.net.URL;
 
 @ConfigurationProperties(prefix = "perfect.lock.redis")
 public class PerfectLockProperties {
+    /**
+     * 拦截器优先级，默认最高
+     */
+    private int aopPriority = 0;
+
+    /**
+     * redis key 前缀
+     */
+    private String prefix = "";
 
     /**
      * If pooled connection not used for a <code>timeout</code> time
@@ -85,6 +94,22 @@ public class PerfectLockProperties {
      * Database index used for Redis connection
      */
     private int database = 0;
+
+    public int getAopPriority() {
+        return aopPriority;
+    }
+
+    public void setAopPriority(int aopPriority) {
+        this.aopPriority = aopPriority;
+    }
+
+    public String getPrefix() {
+        return prefix;
+    }
+
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
+    }
 
     public int getIdleConnectionTimeout() {
         return idleConnectionTimeout;

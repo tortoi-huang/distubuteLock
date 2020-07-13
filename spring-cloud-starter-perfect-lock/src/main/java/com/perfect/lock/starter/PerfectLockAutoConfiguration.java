@@ -2,13 +2,9 @@ package com.perfect.lock.starter;
 
 
 import com.perfect.lock.aop.PerfectLockAspect;
-import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;
-import org.redisson.config.Config;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,7 +16,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @EnableAspectJAutoProxy
 public class PerfectLockAutoConfiguration {
 
-    /*@Bean("lockRedissonClient")
+    /*@Bean
     @ConditionalOnProperty("perfect.lock.redis.host")
     public RedissonClient redissonClient(PerfectLockProperties properties) {
         Config config = new Config();
@@ -37,7 +33,7 @@ public class PerfectLockAutoConfiguration {
 
     @ConditionalOnMissingBean(PerfectLockAspect.class)
     @Bean
-    public PerfectLockAspect perfectLockAspect(RedissonClient client) {
-        return new PerfectLockAspect(client);
+    public PerfectLockAspect perfectLockAspect(RedissonClient client, PerfectLockProperties properties) {
+        return new PerfectLockAspect(client,properties.getAopPriority(), properties.getPrefix());
     }
 }

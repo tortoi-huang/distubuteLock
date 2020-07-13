@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: lock-test2
+perfect:
+  lock:
+    redis:
+      aop-priority: 1
+      prefix: "perfect_lock2:"
+debug: true
