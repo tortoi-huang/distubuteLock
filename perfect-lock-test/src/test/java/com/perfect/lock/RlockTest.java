@@ -75,7 +75,7 @@ public class RlockTest {
 
     private RedissonClient client() {
         Config config = new Config();
-        config.useSingleServer().setAddress("redis://106.52.154.63:6379").setPassword("Lg123$%^");
+        config.useSingleServer().setAddress("redis://42.194.208.5:6379").setPassword("lige@2020");
         return Redisson.create(config);
     }
 }

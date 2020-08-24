@@ -1,13 +1,18 @@
 spring:
   application:
     name: lock-test2
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 123456
+    timeout: 18023ms
 perfect:
   lock:
     redis:
-      aop-priority: 1
-      prefix: "perfect_lock2:"
-  test:
-    redis:
-      address: redis://192.168.0.103:6379
-      password: lige@2020
+      aop-priority: 1 #可选， 基于拦截器的实现，这里设置拦截器的优先级
+      prefix: "perfect_lock2:" #可选， 锁名称在redis中的统一前缀
+#  test:
+#    redis:
+#      address: redis://127.0.0.1:6379
+#      password: 123456
 debug: true

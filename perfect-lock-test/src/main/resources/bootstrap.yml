@@ -1,4 +1,3 @@
-# 注意这是spring cloud 的配置文件，不是spring boot 的配置文件，不使用spring cloud的时候是不生效的
 spring:
   application:
     name: lock-test

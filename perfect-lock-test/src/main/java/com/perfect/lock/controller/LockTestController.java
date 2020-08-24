@@ -20,7 +20,7 @@ public class LockTestController {
     public String testLock() {
         try {
             //这里测试超时释放
-            lockTestCase.testLock3(31);
+            lockTestCase.testLock3(31,12);
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("lockTestCase.testLock3(31)");

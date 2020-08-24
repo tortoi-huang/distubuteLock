@@ -54,12 +54,35 @@ public class LockTestCase {
     }
 
     @PerfectLock(name = "'mylock:' + #orderNo",maxWait = 5000,maxHold = 300)
-    public void testLock3(long orderNo) {
+    public void testLock3(long orderNo,long sss) {
+        System.out.println("testLock3 start: " + orderNo);
         try {
             Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("testLock2(long orderNo): " + orderNo);
+        System.out.println("testLock3 end: " + orderNo);
+    }
+
+    @PerfectLock(name = "'mylock:' + #orderNo",maxWait = 5000,maxHold = 300)
+    public void testLock300(long orderNo,long executeTime) {
+        System.out.println("testLock3 start: " + orderNo);
+        try {
+            Thread.sleep(executeTime);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("testLock3 end: " + orderNo);
+    }
+
+    @PerfectLock(name = "'testLock4'",maxWait = 5000,maxHold = 3000)
+    public void testLock4(long orderNo) {
+        System.out.println("testLock4 start: " + orderNo);
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("testLock4 end: " + orderNo);
     }
 }
